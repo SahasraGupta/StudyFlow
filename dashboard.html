@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudyFlow Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- 👋 Header -->
+  <h1 id="welcomeText">Hey "firstName"+"middleName"+"lastName" 👋</h1>
+  <p class="quote">Plan your day. Stay focused. Win your goals 🎯</p>
+
+  <!-- 📦 GRID -->
+  <div class="grid">
+
+   <div class="card" onclick="openTodo()">
+       <h3>To-Do List</h3>
+      <p>Manage your daily tasks efficiently</p>
+   </div>
+ <div class="card" onclick="openNotes()">
+     <h3>Notes</h3>
+      <p>Save important points and ideas</p>
+ </div>
+    <div class="card" onclick="openTimeTable()">
+    <h3>Time Table</h3>
+    <p>Plan your daily study schedule</p>
+</div>
+
+   <div class="card" onclick="openTimer()">
+  <h3>Study Timer</h3>
+  <p>Track your focus sessions</p>
+</div>
+   <div class="card" onclick="openProgress()">
+  <h3>Progress</h3>
+  <p>See your improvement</p>
+</div>
+    <div class="card" onclick="openLinks()">
+  <h3>Quick Links</h3>
+  <p>Access useful resources quickly</p>
+</div>
+
+  </div>
+
+  <!-- 🤖 AI SECTION -->
+  <div class="ai-section" onclick="openAI()">
+  <h3 class="ai-title">AI Assistant</h3>
+  <p>Get help with doubts & planning</p>
+  </div>
+
+</div>
+<script>
+const user = localStorage.getItem("currentUser");
+
+if (user && user !== "undefined" && user.trim() !== "") {
+  document.getElementById("welcomeText").textContent =
+    "Hey " + user + " 👋";
+} else {
+  document.getElementById("welcomeText").textContent =
+    "Hey User 👋";
+}
+function openTodo() {
+  window.location.href = "todo.html";}
+  function openNotes() {
+  window.location.href = "notes.html";}
+  function openTimeTable() {
+  window.location.href = "subjects.html";}
+function openTimer() {
+  window.location.href = "timer.html";}
+  function openProgress() {
+  window.location.href = "progress.html";}
+  function openLinks() {
+  window.location.href = "quicklinks.html";}
+  function openAI() {
+  window.location.href = "ai.html";}
+</script>
+
+</body>
+</html>

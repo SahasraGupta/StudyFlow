@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTable</title>
+    <link rel="stylesheet" href="subjects.css">
+</head>
+<body>
+  <div class="subjects-container">
+
+  <div class="top">
+    <h2>Select Subject 📚</h2>
+    <button onclick="showForm()">➕</button>
+  </div>
+
+  <div id="subjectsList" class="subjects"></div>
+
+</div>
+
+<!-- FORM -->
+<div id="formBox" style="display:none;">
+  <input type="text" id="subjectInput" placeholder="Enter subject">
+  <button onclick="addSubject()">Add</button>
+  <button onclick="hideForm()">Back</button>
+</div>
+<script>
+function showForm() {
+  document.getElementById("formBox").style.display = "block";
+}
+
+function hideForm() {
+  document.getElementById("formBox").style.display = "none";
+}
+
+function addSubject() {
+  const name = document.getElementById("subjectInput").value;
+
+  if (!name.trim()) return;
+
+  let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+
+  subjects.push(name);
+
+  localStorage.setItem("subjects", JSON.stringify(subjects));
+
+  displaySubjects();
+
+  hideForm();
+}
+
+function displaySubjects() {
+  const list = document.getElementById("subjectsList");
+  list.innerHTML = "";
+
+  let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+
+  subjects.forEach((sub) => {
+    const div = document.createElement("div");
+    div.className = "subject";
+    div.textContent = sub;
+
+    div.onclick = () => {
+      localStorage.setItem("selectedSubject", sub);
+      window.location.href = "schedule.html";
+    };
+
+    list.appendChild(div);
+  });
+}
+
+window.onload = displaySubjects;
+</script>
+</body>
+</html>

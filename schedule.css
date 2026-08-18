@@ -1,0 +1,122 @@
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+/* container */
+.schedule-container {
+  width: 400px;
+  margin: 60px auto;
+  background: rgba(30, 41, 59, 0.6);
+  padding: 25px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* header */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+/* plus button */
+button {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* schedule items */
+.item {
+  background: #1e293b;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT SIDE (time + topic) */
+.item-left {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.time {
+  font-weight: bold;
+}
+
+.topic {
+  color: #cbd5f5;
+}
+
+/* RIGHT SIDE (icons) */
+.item-right {
+  display: flex;
+  gap: 12px;
+}
+
+/* ICON STYLE */
+.item-right span {
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+/* EDIT HOVER */
+.item-right span:first-child:hover {
+  color: #10b981;
+  transform: scale(1.2);
+}
+
+/* DELETE HOVER */
+.item-right span:last-child:hover {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* form popup */
+#formBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+/* inputs */
+input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* form buttons */
+#formBox button {
+  margin-top: 10px;
+  width: 100%;
+}

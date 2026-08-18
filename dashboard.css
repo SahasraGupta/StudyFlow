@@ -1,0 +1,104 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: white;
+}
+
+/* MAIN */
+.dashboard {
+  padding: 40px;
+  text-align: center;
+}
+
+/* HEADER */
+h1 {
+  font-size: 36px;
+}
+
+.quote {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  /*grid-template-columns: repeat(3, 1fr);*/
+  gap: 30px;   /* 👈 more gap between boxes */
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 250px);  /* 👈 FIX SIZE */
+  justify-content: center; /* center align */
+}
+
+/* CARDS */
+.card {
+  aspect-ratio: 1 / 1; 
+  padding: 25px;   /* 👈 slightly smaller */
+  border-radius: 14px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   text-align: center;    
+}
+
+/* HOVER GLOW 🔥 */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px #6366f1;
+}
+/* AI SECTION CENTER */
+.ai-section {
+  width: 250px;              /* 👈 same as grid */
+  aspect-ratio: 1 / 1;       /* 👈 square */
+  margin: 30px auto;         /* 👈 center */
+  padding-top: 2%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+  
+}
+
+/* same hover */
+.ai-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px #6366f1;
+}
+.dashboard {
+  padding: 60px 80px;   /* 👈 more breathing space */
+}
+.card {
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.card h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.card p {
+  font-size: 20px;
+  color: #94a3b8;
+}
+.ai-section p{
+  font-size: 20px;
+  color: #94a3b8;
+}
+.ai-section h3{
+  font-size: 22px;
+  font-weight: 600;
+}

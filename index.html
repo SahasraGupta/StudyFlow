@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🔐 LOGIN PAGE -->
+<div id="loginPage" class="container">
+
+  <div class="left">
+    <img src="StudyFlow Project Img1.png" alt="student" />
+  </div>
+
+  <div class="right">
+    <h1>StudyFlow</h1>
+    <p>Organize. Focus. Achieve.</p>
+
+    <form>
+      <input type="email" placeholder="Email" required>
+
+      <div class="password-box">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <span class="eye" onclick="togglePassword('loginPassword', this)">👁️</span>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <p id="loginError" style="font-size:13px;"></p>
+
+      <p class="auth-text">
+        Don't have an account?
+        <a href="#" onclick="showSignup()">Sign up</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+
+<!-- 📝 SIGNUP PAGE -->
+<div id="signupPage" class="container" style="display:none;">
+
+  <div class="left">
+    <img src="StudyFlow Project Img1.png" alt="student" />
+  </div>
+
+  <div class="right">
+    <h1>Sign Up</h1>
+    <p>Create your StudyFlow account</p>
+
+    <form>
+
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Middle Name (Optional)">
+      <input type="text" placeholder="Last Name" required>
+
+      <input type="email" placeholder="Email" required>
+
+      <div class="password-box">
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <span class="eye" onclick="togglePassword('signupPassword', this)">👁️</span>
+      </div>
+
+      <div class="password-box">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <span class="eye" onclick="togglePassword('confirmPassword', this)">👁️</span>
+      </div>
+
+      <button type="submit">Sign Up</button>
+
+      <p id="signupError" style="font-size:13px;"></p>
+
+      <p class="auth-text">
+        Already have an account?
+        <a href="#" onclick="showLogin()">Login</a>
+      </p>
+
+    </form>
+  </div>
+
+</div>
+
+
+<!-- ⚙️ JAVASCRIPT -->
+<script>
+
+/* PAGE SWITCH */
+function showSignup() {
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("signupPage").style.display = "flex";
+}
+
+function showLogin() {
+  document.getElementById("signupPage").style.display = "none";
+  document.getElementById("loginPage").style.display = "flex";
+}
+
+/* PASSWORD TOGGLE */
+function togglePassword(id, icon) {
+  const input = document.getElementById(id);
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.textContent = "🙈";
+  } else {
+    input.type = "password";
+    icon.textContent = "👁️";
+  }
+}
+
+/* SIGNUP LOGIC */
+document.querySelector("#signupPage form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const inputs = this.querySelectorAll("input");
+
+  const firstName = inputs[0].value;
+  const middleName = inputs[1].value;
+  const lastName = inputs[2].value;
+  const email = inputs[3].value;
+  const password = document.getElementById("signupPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  const error = document.getElementById("signupError");
+
+  if (password !== confirmPassword) {
+    error.style.color = "red";
+    error.textContent = "Passwords do not match";
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const exists = users.find(u => u.email === email);
+
+  if (exists) {
+    error.style.color = "red";
+    error.textContent = "Email already registered";
+    return;
+  }
+
+ users.push({
+  email,
+  password,
+  name: firstName + " " + (middleName || "") + " " + lastName
+});
+
+  localStorage.setItem("users", JSON.stringify(users));
+
+  error.style.color = "green";
+  error.textContent = "Signup successful!";
+
+  this.reset();
+});
+
+
+/* LOGIN LOGIC */
+document.querySelector("#loginPage form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = this.querySelector('input[type="email"]').value;
+  const password = document.getElementById("loginPassword").value;
+
+  const error = document.getElementById("loginError");
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const user = users.find(u => u.email === email && u.password === password);
+
+  if (!user) {
+    error.style.color = "red";
+    error.textContent = "Incorrect credentials";
+    return;
+  }
+
+  // ✅ Store name (IMPORTANT FIX)
+  localStorage.setItem("currentUser", user.name);
+
+  error.style.color = "green";
+  error.textContent = "Login successful!";
+
+  // ✅ Redirect
+  window.location.href = "dashboard.html";
+});
+
+</script>
+
+</body>
+</html>

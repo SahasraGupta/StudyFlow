@@ -1,0 +1,32 @@
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.links-container {
+  margin-top: 80px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  margin: auto;
+}
+
+.link {
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.link:hover {
+  background: #6366f1;
+  transform: scale(1.05);
+}

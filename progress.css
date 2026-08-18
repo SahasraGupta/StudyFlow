@@ -1,0 +1,18 @@
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.progress-container {
+  margin-top: 80px;
+}
+
+.box {
+  background: #1e293b;
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}

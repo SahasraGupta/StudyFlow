@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+
+<div class="todo-container">
+
+  <!-- Header -->
+  <div class="top">
+    <h2>Add your today's task ✨</h2>
+    <button onclick="showForm()">➕</button>
+  </div>
+
+  <!-- Task List -->
+  <div id="taskList"></div>
+
+</div>
+
+<!-- FORM POPUP -->
+<div id="formBox" class="form-box" style="display:none;">
+  
+  <input type="text" id="taskName" placeholder="Task Name">
+  <input type="text" id="taskNote" placeholder="Short Note">
+
+  <div class="buttons">
+    <button onclick="hideForm()">Back</button>
+    <button onclick="addTask()">Enter</button>
+  </div>
+
+</div>
+
+<script src="todo.js"></script>
+
+</body>
+</html>

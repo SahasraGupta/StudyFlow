@@ -1,0 +1,60 @@
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.timer-container {
+  margin-top: 80px;
+}
+
+/* INPUT BOX */
+.input-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 60px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  text-align: center;
+  background: #1e293b;
+  color: white;
+  font-size: 16px;
+}
+
+/* TIMER DISPLAY */
+#time {
+  font-size: 70px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+/* MODE TEXT */
+#mode {
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+/* BUTTONS */
+.buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+}

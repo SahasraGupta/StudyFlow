@@ -1,0 +1,33 @@
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.subjects {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.subject {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.subject:hover {
+  background: #6366f1;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #6366f1;
+}
